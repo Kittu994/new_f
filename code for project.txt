@@ -1,0 +1,25 @@
+const int ledpin=13;
+const int soundpin=A2;
+const int threshold=100;
+void setup() {
+   pinMode(A1,INPUT);
+  Serial.begin(9600);
+pinMode(13,OUTPUT);
+pinMode(A2,INPUT);
+}
+
+void loop() {
+  int a =analogRead(A1);
+  Serial.println(a);
+  int percentage=map(a,100,450,0,100);
+  Serial.println(percentage);
+  delay(1000);
+int soundsens=analogRead(A2); 
+    if (soundsens>=threshold) {
+digitalWrite(13,HIGH); 
+delay(1000);
+}
+else{
+digitalWrite(13,LOW);
+}
+}
